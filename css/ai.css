@@ -1,0 +1,47 @@
+#responsediv{
+	
+	height:70px;
+	width:800px;
+	border: 1px;
+	margin-top:10px;
+        color:red;
+	
+}
+#notice{
+	border: 2px solid;
+    border-radius: 25px;
+    text-align:center;
+}
+#capcha{
+  vertical-align: bottom;
+}
+
+.ui-tabs .ui-tabs-panel{
+	height:100%;
+	min-height: 530px;
+}
+#wait{	
+	position:absolute;
+	bottom:310px;
+	margin-left:450px;
+	display:none;
+}
+#user{
+	margin-left:75%;
+}
+#level{
+	color: green;
+}
+#home{
+	background-color: #DDD;
+	height:550px;
+}
+#headdiv{
+	background-color:#f6a828;
+}
+#logo{
+	margin-top:20px;
+}
+#info{
+	margin-left:100px;
+}
