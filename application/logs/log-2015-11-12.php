@@ -2206,3 +2206,238 @@ INFO - 2015-11-12 07:47:50 --> Helper loaded: url_helper
 DEBUG - 2015-11-12 07:47:50 --> Session class already loaded. Second attempt ignored.
 INFO - 2015-11-12 07:47:50 --> Final output sent to browser
 DEBUG - 2015-11-12 07:47:50 --> Total execution time: 1.6171
+INFO - 2015-11-12 08:04:31 --> Config Class Initialized
+INFO - 2015-11-12 08:04:31 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:31 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:31 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:31 --> URI Class Initialized
+DEBUG - 2015-11-12 08:04:31 --> No URI present. Default controller set.
+INFO - 2015-11-12 08:04:31 --> Router Class Initialized
+INFO - 2015-11-12 08:04:31 --> Output Class Initialized
+INFO - 2015-11-12 08:04:31 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:32 --> Input Class Initialized
+INFO - 2015-11-12 08:04:32 --> Language Class Initialized
+INFO - 2015-11-12 08:04:32 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:32 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:32 --> Model Class Initialized
+INFO - 2015-11-12 08:04:32 --> Model Class Initialized
+INFO - 2015-11-12 08:04:32 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:33 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+INFO - 2015-11-12 08:04:33 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:33 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:33 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:33 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:33 --> File loaded: C:\Program Files (x86)\EasyPHP\data\localweb\language_ai\application\views\ai_home.php
+INFO - 2015-11-12 08:04:33 --> File loaded: C:\Program Files (x86)\EasyPHP\data\localweb\language_ai\application\views\template.php
+INFO - 2015-11-12 08:04:33 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:33 --> Total execution time: 1.4781
+INFO - 2015-11-12 08:04:35 --> Config Class Initialized
+INFO - 2015-11-12 08:04:35 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:35 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:35 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:35 --> URI Class Initialized
+INFO - 2015-11-12 08:04:36 --> Router Class Initialized
+INFO - 2015-11-12 08:04:36 --> Output Class Initialized
+INFO - 2015-11-12 08:04:36 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:36 --> Input Class Initialized
+INFO - 2015-11-12 08:04:36 --> Language Class Initialized
+INFO - 2015-11-12 08:04:36 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:36 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:36 --> Model Class Initialized
+INFO - 2015-11-12 08:04:36 --> Model Class Initialized
+INFO - 2015-11-12 08:04:36 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:37 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+INFO - 2015-11-12 08:04:37 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:37 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:37 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:37 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:37 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:37 --> Total execution time: 1.5101
+INFO - 2015-11-12 08:04:43 --> Config Class Initialized
+INFO - 2015-11-12 08:04:43 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:43 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:43 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:43 --> URI Class Initialized
+INFO - 2015-11-12 08:04:43 --> Router Class Initialized
+INFO - 2015-11-12 08:04:43 --> Output Class Initialized
+INFO - 2015-11-12 08:04:43 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:43 --> Input Class Initialized
+INFO - 2015-11-12 08:04:43 --> Language Class Initialized
+INFO - 2015-11-12 08:04:43 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:43 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:43 --> Model Class Initialized
+INFO - 2015-11-12 08:04:43 --> Model Class Initialized
+INFO - 2015-11-12 08:04:43 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:44 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+INFO - 2015-11-12 08:04:44 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:44 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:44 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:44 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:45 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:45 --> Total execution time: 1.8011
+INFO - 2015-11-12 08:04:49 --> Config Class Initialized
+INFO - 2015-11-12 08:04:49 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:49 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:49 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:49 --> URI Class Initialized
+INFO - 2015-11-12 08:04:49 --> Router Class Initialized
+INFO - 2015-11-12 08:04:49 --> Output Class Initialized
+INFO - 2015-11-12 08:04:49 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:49 --> Input Class Initialized
+INFO - 2015-11-12 08:04:49 --> Language Class Initialized
+INFO - 2015-11-12 08:04:49 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:49 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:49 --> Model Class Initialized
+INFO - 2015-11-12 08:04:49 --> Model Class Initialized
+INFO - 2015-11-12 08:04:49 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:50 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:50 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:50 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:50 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:50 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:50 --> Total execution time: 1.4681
+INFO - 2015-11-12 08:04:50 --> Config Class Initialized
+INFO - 2015-11-12 08:04:50 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:50 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:50 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:50 --> URI Class Initialized
+INFO - 2015-11-12 08:04:50 --> Router Class Initialized
+INFO - 2015-11-12 08:04:50 --> Output Class Initialized
+INFO - 2015-11-12 08:04:50 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:50 --> Input Class Initialized
+INFO - 2015-11-12 08:04:50 --> Language Class Initialized
+INFO - 2015-11-12 08:04:50 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:50 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Model Class Initialized
+INFO - 2015-11-12 08:04:50 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:51 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+INFO - 2015-11-12 08:04:51 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:51 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:51 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:51 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:52 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:52 --> Total execution time: 1.4581
+INFO - 2015-11-12 08:04:53 --> Config Class Initialized
+INFO - 2015-11-12 08:04:53 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:53 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:53 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:53 --> URI Class Initialized
+INFO - 2015-11-12 08:04:53 --> Router Class Initialized
+INFO - 2015-11-12 08:04:53 --> Output Class Initialized
+INFO - 2015-11-12 08:04:53 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:53 --> Input Class Initialized
+INFO - 2015-11-12 08:04:53 --> Language Class Initialized
+INFO - 2015-11-12 08:04:53 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:53 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:53 --> Model Class Initialized
+INFO - 2015-11-12 08:04:53 --> Model Class Initialized
+INFO - 2015-11-12 08:04:53 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:54 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+INFO - 2015-11-12 08:04:55 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:55 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:55 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:55 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:55 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:55 --> Total execution time: 1.5171
+INFO - 2015-11-12 08:04:57 --> Config Class Initialized
+INFO - 2015-11-12 08:04:57 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:57 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:57 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:57 --> URI Class Initialized
+INFO - 2015-11-12 08:04:57 --> Router Class Initialized
+INFO - 2015-11-12 08:04:57 --> Output Class Initialized
+INFO - 2015-11-12 08:04:57 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:57 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:57 --> Input Class Initialized
+INFO - 2015-11-12 08:04:57 --> Language Class Initialized
+INFO - 2015-11-12 08:04:57 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:57 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:57 --> Model Class Initialized
+INFO - 2015-11-12 08:04:57 --> Model Class Initialized
+INFO - 2015-11-12 08:04:57 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:04:58 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+DEBUG - 2015-11-12 08:04:58 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:58 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:04:58 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:04:58 --> Final output sent to browser
+DEBUG - 2015-11-12 08:04:58 --> Total execution time: 1.4821
+INFO - 2015-11-12 08:04:58 --> Config Class Initialized
+INFO - 2015-11-12 08:04:58 --> Hooks Class Initialized
+DEBUG - 2015-11-12 08:04:58 --> UTF-8 Support Enabled
+INFO - 2015-11-12 08:04:58 --> Utf8 Class Initialized
+INFO - 2015-11-12 08:04:58 --> URI Class Initialized
+INFO - 2015-11-12 08:04:58 --> Router Class Initialized
+INFO - 2015-11-12 08:04:58 --> Output Class Initialized
+INFO - 2015-11-12 08:04:58 --> Security Class Initialized
+DEBUG - 2015-11-12 08:04:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-11-12 08:04:58 --> Input Class Initialized
+INFO - 2015-11-12 08:04:58 --> Language Class Initialized
+INFO - 2015-11-12 08:04:58 --> Loader Class Initialized
+INFO - 2015-11-12 08:04:58 --> Controller Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Model Class Initialized
+INFO - 2015-11-12 08:04:58 --> Database Driver Class Initialized
+INFO - 2015-11-12 08:05:00 --> Session: Class initialized using 'files' driver.
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+INFO - 2015-11-12 08:05:00 --> Model Class Initialized
+DEBUG - 2015-11-12 08:05:00 --> Common class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:05:00 --> Helper loaded: url_helper
+DEBUG - 2015-11-12 08:05:00 --> Session class already loaded. Second attempt ignored.
+INFO - 2015-11-12 08:05:00 --> Final output sent to browser
+DEBUG - 2015-11-12 08:05:00 --> Total execution time: 1.4671
