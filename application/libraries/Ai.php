@@ -107,7 +107,7 @@ class Ai{
 			if($j <= $size){
 				
 				if(strtolower($words[$i]) === strtolower($words[$j])){
-					unset($words[$j]);
+					unset($words[$i]);
 				}
 			}
 		}
