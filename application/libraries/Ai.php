@@ -289,7 +289,7 @@ class Ai{
 
 			foreach($cons as $val){			
 			if($this->CI->connections->match_connections($val,$ids)){
-				//match mot connected
+				//match more connected
 
 				if(in_array($val,$finalResult)){
 					continue;
