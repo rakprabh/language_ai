@@ -262,7 +262,7 @@ class Ai{
 	
 	}
 	
-	function traverse($id,$ids,$finalResult,$checked){
+	function traverse($id,$ids,$finalResult,$checked,$results = array()){
 
 		$oneWordSelf = false;
 	
@@ -270,7 +270,6 @@ class Ai{
 			$oneWordSelf = true;
 		}
 	
-		$results = array();
 		array_push($checked,$id);
 		
 		
@@ -301,7 +300,7 @@ class Ai{
 			}else{
 	
 					if(!in_array($val,$checked)){					
-						return $this->traverse($val,$ids,$finalResult,$checked);
+						return $this->traverse($val,$ids,$finalResult,$checked,$results);
 					}
 	
 			}
