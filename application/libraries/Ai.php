@@ -164,7 +164,7 @@ class Ai{
 					$disk_break = ($array === $orig);
 
 					if(!$disk_break){
-						return $this->getOrder($current,$array,$orig);
+						return $this->getOrder($current+1,$array,$orig);
 					}
 			}			
 		}
@@ -236,12 +236,16 @@ class Ai{
 	private function traverseX($ids,$text){
 	
 		$finalResult = array();
-	
+		$checked = array();
 	
 		foreach($ids as $id){
 		
-			$checked = array();
-			$ph = $this->traverse($id,$ids,$finalResult,$checked);
+			
+			$ph_array = $this->traverse($id,$ids,$finalResult,$checked);
+			
+			$ph = $ph_array["results"];
+			
+			$checked = array_unique (array_merge ($checked, $ph_array["checked"]));
 			
 			if($ph){
 	
@@ -249,7 +253,6 @@ class Ai{
 					array_push($finalResult, $phval);
 				}
 				
-		
 			}
 		}
 
@@ -262,7 +265,7 @@ class Ai{
 	
 	}
 	
-	function traverse($id,$ids,$finalResult,$checked){
+	function traverse($id,$ids,&$finalResult,&$checked){
 
 		$oneWordSelf = false;
 	
@@ -296,22 +299,21 @@ class Ai{
 				}
 				
 				$results[] = $val;
-
-				break;
 			}else{
 	
 					if(!in_array($val,$checked)){					
 						return $this->traverse($val,$ids,$finalResult,$checked);
-					}
-	
+					}	
 			}
 		  }
 		}
 	
+		$response = array("checked" => $checked,"results"=>$results);
+		
 		if(empty($results)){
 			return false;
 		}else{
-			return $results;
+			return $response;
 		}
 	
 	}
