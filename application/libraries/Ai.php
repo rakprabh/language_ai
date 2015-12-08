@@ -69,6 +69,7 @@ class Ai{
 			if(!$response){
 				$response = "Teach me to respond to \"" . $this->text . "\"";
 			}else{
+
 				$response = $this->orderIt($this->fetchWords($response));
 				$this->CI->current_output->truncate_current_output();
 				$this->CI->current_output->add_current_output($this->text);
@@ -140,14 +141,15 @@ class Ai{
 		
 		$words = explode(" ",$text);
 		$size  = sizeOf($words);
-		$result = $this->getOrder(0,$words,$words);
+		$result = $this->getOrder(0,$words,$words,array());
  		return implode(" ",$result);
 		
 	}
 	
-	private function getOrder($current,$array,$orig){
+	private function getOrder($current,$array,$orig,$prev_arrays){
 			
 		$size  = sizeOf($array);
+		$prev_match = false;
 	
 		for($i=$current;$i<$size;$i++){
 			
@@ -161,16 +163,23 @@ class Ai{
 					$array[$i] = $array[$current];
 					$array[$current] = $placeholder;
 					
-					$disk_break = ($array === $orig);
+					foreach ($prev_arrays as $prev_array){
+						if($array === $prev_array){
+							$prev_match = true;
+						}
+					}
+					
+					$disk_break = ($array === $orig)|$prev_match;
 
-					if(!$disk_break){
-						return $this->getOrder($current+1,$array,$orig);
+					if(!$disk_break){	
+							$prev_arrays[] = $array;
+							return $this->getOrder($current,$array,$orig,$prev_arrays);
 					}
 			}			
 		}
 		
 		if($current < ($size-1)){
-			return $this->getOrder($current+1,$array,$orig);
+			return $this->getOrder($current+1,$array,$orig,array());
 		}else{
 			return $array;
 		}
@@ -265,7 +274,7 @@ class Ai{
 	
 	}
 	
-	function traverse($id,$ids,&$finalResult,&$checked){
+	function traverse($id,$ids,&$finalResult,&$checked,$prev_id = 0){
 
 		$oneWordSelf = false;
 	
@@ -299,10 +308,11 @@ class Ai{
 				}
 				
 				$results[] = $val;
+				continue;
 			}else{
 	
-					if(!in_array($val,$checked)){					
-						return $this->traverse($val,$ids,$finalResult,$checked);
+					if(!in_array($val,$checked) && $val != $id && $id != $prev_id){	
+						return $this->traverse($val,$ids,$finalResult,$checked,$val);
 					}	
 			}
 		  }
