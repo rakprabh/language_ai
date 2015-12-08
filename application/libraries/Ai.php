@@ -286,9 +286,7 @@ class Ai{
 		array_push($checked,$id);
 		
 		
-		$connection = $this->CI->connections->get_connection($id,$id);
-		
-		
+		$connection = $this->CI->connections->get_connection($id,$id);		
 		
 		if($connection & (!$oneWordSelf)){
 			$results[] = $id;
