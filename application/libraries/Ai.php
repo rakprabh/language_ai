@@ -274,7 +274,7 @@ class Ai{
 	
 	}
 	
-	function traverse($id,$ids,&$finalResult,&$checked,$prev_id = 0){
+	function traverse($id,$ids,&$finalResult,&$checked,$results = array(),$prev_id = 0){
 
 		$oneWordSelf = false;
 	
@@ -282,7 +282,6 @@ class Ai{
 			$oneWordSelf = true;
 		}
 	
-		$results = array();
 		array_push($checked,$id);
 		
 		
@@ -300,7 +299,7 @@ class Ai{
 
 			foreach($cons as $val){			
 			if($this->CI->connections->match_connections($val,$ids)){
-
+				
 				if(in_array($val,$finalResult)){
 					continue;
 				}
@@ -310,7 +309,7 @@ class Ai{
 			}else{
 	
 					if(!in_array($val,$checked) && $val != $id && $id != $prev_id){	
-						return $this->traverse($val,$ids,$finalResult,$checked,$val);
+						return $this->traverse($val,$ids,$finalResult,$checked,$results,$val);
 					}	
 			}
 		  }
