@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ai{
 	
-	private $text,$correct,$user_id;
+	private $text,$correct,$user_id,$state;
 	
 	public function __construct()
     {   	
@@ -246,6 +246,7 @@ class Ai{
 	
 		$finalResult = array();
 		$checked = array();
+		$this->state = array();
 	
 		foreach($ids as $id){
 		
@@ -291,27 +292,30 @@ class Ai{
 			$results[] = $id;
 		}else{
 
+			
 			$cons = $this->CI->connections->get_connections($id);
 
 			if(!(is_array($cons) & sizeof($cons) > 0 )){
 				return false;			
 			}
 
-			foreach($cons as $val){			
-			if($this->CI->connections->match_connections($val,$ids)){
+			foreach($cons as $val){
 				
-				if(in_array($val,$finalResult)){
+				if($this->CI->connections->match_connections($val,$ids)){
+					if(in_array($val,$finalResult)){
+						continue;
+					}
+					
+					$results[] = $val;
 					continue;
+				}else{
+		
+						$shortCircuit = $this->shortCircuit($prev_id,$id,$val);
+						if(!in_array($val,$checked) && !$shortCircuit){	
+							$this->updateState($prev_id,$id,$val);
+							return $this->traverse($val,$ids,$finalResult,$checked,$results,$id);
+						}	
 				}
-				
-				$results[] = $val;
-				continue;
-			}else{
-	
-					if(!in_array($val,$checked) && $val != $id && $id != $prev_id){	
-						return $this->traverse($val,$ids,$finalResult,$checked,$results,$val);
-					}	
-			}
 		  }
 		}
 	
@@ -323,5 +327,19 @@ class Ai{
 			return $response;
 		}
 	
+	}
+	
+	private function updateState($prev_id,$id,$val){
+		$this->state[] = array("prev_id"=>$prev_id,"id"=>$id,"val"=>$val);
+	}
+	
+	private function shortCircuit($prev_id,$id,$val){
+		$nowStates = $this->state;
+		foreach ($nowStates as $nowState){
+			if($prev_id == $nowState['prev_id'] &&  $id == $nowState['id'] &&  $val == $nowState['val']){
+				return true;
+			}
+		}	
+			return false;
 	}
 }
