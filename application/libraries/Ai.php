@@ -311,8 +311,8 @@ class Ai{
 				}else{
 					
 					
-						if($itr >=20){
-							break;
+						if($itr >=10){
+							continue;
 						}
 		
 						$shortCircuit = $this->shortCircuit($prev_id,$id,$val);
