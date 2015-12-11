@@ -311,7 +311,7 @@ class Ai{
 				}else{
 					
 					
-						if($itr >=10){
+						if($itr >=6){
 							continue;
 						}
 		
