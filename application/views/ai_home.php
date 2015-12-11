@@ -5,7 +5,7 @@
     <li id="tab3" ><a href="#tabs-3">Question History</a></li>
     <li id="tab4" ><a href="#tabs-4">Response History</a></li>
   </ul>
-  <div id="user" >Welcome <?php echo $user_name . "  ";?><a href="<?php echo $logoutUrl;?>" >Logout</a></div>
+  <div id="user" >Welcome <?php echo $user_name . "  ";?><a href="<?php echo "index.php/welcome/logout";?>" >Logout</a></div>
   <div id="tabs-1">
   	<!--	<h3>Talk to me (Ver 1.0)</h3>		 
 		<div id="notice" >Talk to me Is an AI Program Which Learns the Natural Language like a baby ,Teach it how to respond if it says "I dont know , tell me",<br />It will acknowledge you with "ok".<br />You can also correct its answer. </div>
