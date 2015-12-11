@@ -311,7 +311,7 @@ class Ai{
 				}else{
 		
 						$shortCircuit = $this->shortCircuit($prev_id,$id,$val);
-						if(!in_array($val,$checked) && !$shortCircuit){	
+						if(!in_array($val,$checked) && !$shortCircuit && $val !=$id){	
 							$this->updateState($prev_id,$id,$val);
 							return $this->traverse($val,$ids,$finalResult,$checked,$results,$id);
 						}	
