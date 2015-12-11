@@ -311,7 +311,7 @@ class Ai{
 				}else{
 		
 						$shortCircuit = $this->shortCircuit($prev_id,$id,$val);
-						if(!in_array($val,$checked) && !$shortCircuit && $val !=$id){	
+						if(!in_array($val,$checked) && !$shortCircuit){		
 							$this->updateState($prev_id,$id,$val);
 							return $this->traverse($val,$ids,$finalResult,$checked,$results,$id);
 						}	
@@ -330,13 +330,13 @@ class Ai{
 	}
 	
 	private function updateState($prev_id,$id,$val){
-		$this->state[] = array("prev_id"=>$prev_id,"id"=>$id,"val"=>$val);
+		$this->state[] = array($prev_id,$id,$val);
 	}
 	
 	private function shortCircuit($prev_id,$id,$val){
 		$nowStates = $this->state;
 		foreach ($nowStates as $nowState){
-			if($prev_id == $nowState['prev_id'] &&  $id == $nowState['id'] &&  $val == $nowState['val']){
+			if(in_array($prev_id,$nowState) &&  in_array($id,$nowState) &&  in_array($val,$nowState)){
 				return true;
 			}
 		}	
