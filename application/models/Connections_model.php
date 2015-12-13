@@ -53,7 +53,9 @@ class Connections_model extends CI_Model {
 			$this->db->from('connections');
 			$this->db->where('start =', $id);
 			$this->db->or_where('dest =', $id);
-			$this->db->order_by('strength desc');  
+			$this->db->order_by('strength desc');
+			$this->db->limit(20);
+			
 			$query = $this->db->get();
 			$results = $query->result();
 			
