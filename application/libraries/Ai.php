@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ai{
 	
-	private $text,$correct,$user_id,$state;
+	private $text,$correct,$user_id,$state,$done;
 	
 	public function __construct()
     {   	
@@ -15,6 +15,7 @@ class Ai{
 		$this->CI->load->model('words_model','words');
 		$this->CI->load->model('word_flow_model','word_flow');
 		$this->correct = false;
+		$this->done = array();
     }
 	
 	public function setInput($text){
@@ -65,17 +66,26 @@ class Ai{
 			$ids = $this->CI->words->get_ids($this->text);
 			
 			$response = $this->traverseX($ids,$this->text);
+			
 
 			if(!$response){
 				$response = "Teach me to respond to \"" . $this->text . "\"";
 			}else{
 
 				$response = $this->orderIt($this->fetchWords($response));
+				$response = $clean_response = $this->removeConsecutiveRepeat($this->cleanResponse($this->removeConsecutiveRepeat($response)));
 				$this->CI->current_output->truncate_current_output();
 				$this->CI->current_output->add_current_output($this->text);
 			}
 		
-				return $this->removeConsecutiveRepeat($response);
+			$response = trim($response);
+			
+			if(!$response){
+				echo "I dont Know.";
+			}else{
+				echo $response;
+			}
+				
   
   			}else{
   				
@@ -124,16 +134,13 @@ class Ai{
 		$size = sizeOf($words);
 		$totalWords = $size;
 		
-		for($i=0;$i<$size;$i++){
-			$j = $i +1;
-			$from = $this->CI->words->get_word_id($this->user_id,$words[$i]);			
-			
-			if($i >= ($size -1)){
-				continue;
+		for($i=0;$i<$size-1;$i++){
+			for($j=$i+1;$j<$size;$j++){
+		
+				$from = $this->CI->words->get_word_id($this->user_id,$words[$i]);			
+				$to = $this->CI->words->get_word_id($this->user_id,$words[$j]);
+				$this->CI->word_flow->link_words($from,$to);
 			}
-			
-			$to = $this->CI->words->get_word_id($this->user_id,$words[$j]);
-			$this->CI->word_flow->link_words($from,$to);
 		}
 	}
 	
@@ -186,6 +193,183 @@ class Ai{
 		
 	}
 	
+	private function cleanResponse($text){
+		
+		$words = explode(" ",$text);
+		$size  = sizeOf($words);
+		$final_response = array();
+		$picked_up = array();
+
+		for($i=0;$i<$size;$i++){
+			$i_id = $this->CI->words->get_word_id($this->user_id,$words[$i]);
+			if(!$i_id){
+				continue;
+			}
+			
+			$self_link = $this->CI->word_flow->word_link_exists($i_id,$i_id);
+			$latest = $self_link;
+			
+			if($self_link){
+				$loop_id = $i;
+			}else{
+				$loop_id = 0;
+			}
+			
+			
+			for($j=0;$j<$size;$j++){
+				
+				if($i===$j || in_array($j, $picked_up)){
+					continue;
+				}
+				
+				$j_id = $this->CI->words->get_word_id($this->user_id,$words[$j]);
+				
+				if($j_id){
+					$foward_link = $this->CI->word_flow->word_link_exists($i_id,$j_id);
+				}else{
+					continue;
+				}
+				
+				if($foward_link && ($foward_link > $latest)){
+					$latest =  $foward_link;
+					$loop_id = $j_id;
+					array_push($picked_up,$j);
+				}
+			}
+			
+			if($latest){
+			
+				$temp = array("word_id"=>$i_id,"linked_word_id"=>$loop_id);
+				
+				array_push($final_response,$temp);
+
+			}			
+		}
+		
+		$size = sizeOf($final_response);
+		$final_ids = array();
+		$lword = 0;
+		if($size > 0){
+			array_push($final_ids,$final_response[0]["word_id"]);
+			$lword = $this->findLinking($final_response,$final_response[0]["word_id"]);
+		}
+		
+		
+		$prevContinue = false;
+		
+		for($i=0;$i<($size-1);$i++){
+			
+			$found = false;
+			$link_id = $final_response[$i]["linked_word_id"];
+
+			for($j=$i+1;$j<$size;$j++){
+				
+				$word_j = $final_response[$j]["word_id"];
+				if($link_id === $word_j){
+					$found = true;
+					$temp = $final_response[$i+1];
+					$final_response[$i+1] = $final_response[$j];
+					$final_response[$j] = $temp;
+					continue;
+				}
+					
+			}
+			
+			if(!$found && $i!=($size-1)){
+			   if($i > 0){
+			   					   	
+			   		if(!$prevContinue){
+			   			$temp = $final_response[$i];
+			   			$temp['continues'] = false;
+			   			$prevContinue = false;
+			   			unset($final_response[$i]);
+			   			$final_response[$i]['continues'] = true;
+			   			array_push($final_response,$temp);
+			   		}else{
+			   			$final_response[$i]['continues'] = false;			   			
+			   			$prevContinue = false;
+			   		}
+			   }else{
+			   		$final_response[$i]['continues'] = true;
+			   }
+			  
+			}else{
+				$final_response[$i]['continues'] = true;
+				$prevContinue = true;
+			}
+			
+		}
+		
+	
+		$strike = 0;
+		for($i=0;$i<$size;$i++){
+			
+			if($strike <2){
+				$current_word = $final_response[$i]["word_id"];
+				$current_linked_word = $final_response[$i]["linked_word_id"];
+				$continues = $final_response[$i]['continues'];
+				array_push($final_ids,$current_word);
+				if(!$continues){
+					
+					array_push($final_ids,$current_linked_word);
+					if($i==($size-1) || $strike==1){
+						array_push($final_ids,-2);
+					}else{
+						array_push($final_ids,-1);
+					}
+					
+					$strike++;
+				}
+			}else{
+				break;
+			}
+		}
+			
+		return $this->fetchWords($final_ids);
+	}
+	
+	
+	
+	
+	private function findLinking($final_array,$word_id){
+		
+		$size = sizeOf($final_array);
+		$orig_array = $final_array;
+		$word_id = intval($word_id);
+
+		for($k=0;$k<$size;$k++){
+			
+			if(in_array($k, $this->done)){
+				echo "unsetting....";
+				unset($final_array[$k]);
+			}
+		}
+		
+		for($k=0;$k<$size;$k++){
+			if($final_array[$k]["word_id"] === $word_id){
+				array_push($this->done,$this->getOriginalK($orig_array,$word_id));
+				return $final_array[$k]["linked_word_id"];
+			}
+			
+		}
+		
+		return false;
+	}
+	
+	private function getOriginalK($orig_array,$word_id){
+		
+		$size = sizeOf($orig_array);
+		
+		for($k=0;$k<$size;$k++){
+			if($orig_array[$k]["word_id"] === $word_id){
+				return $k;
+			}
+				
+		}
+		
+	}
+	
+	
 	private function getWordLink($word1,$word2){
 		
 		$id1 = $this->CI->words->get_word_id($this->user_id,$word1);
@@ -219,12 +403,22 @@ class Ai{
 		$text = "";
 	
 		foreach($ids as $id){
-			
-			$word_i = $this->CI->words->get_word($this->user_id,$id);	
-
-			if($word_i){
-				$text .=  $word_i . " ";
+		    
+			switch($id){
+				case -1:
+					$text .=  ", ";
+					break;
+				case  -2:
+					$text .=  ".";
+					break;
+				default:
+					$word_i = $this->CI->words->get_word($this->user_id,$id);
+					
+					if($word_i){
+						$text .=  $word_i . " ";
+					}
 			}
+		
 		}
 		
 		return rtrim($text);

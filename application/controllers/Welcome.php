@@ -117,6 +117,8 @@ class Welcome extends CI_Controller {
 	public function response(){
 		
 		$query =  $this->input->post("query");
+		$query = trim(preg_replace('/\s\s+/', ' ', str_replace("\n", " ", $query)));
+		$query = preg_replace('/[^A-Za-z0-9@#$%&\'\s\-]/', '', $query);
 		$correct =  filter_var($this->input->post("correct"), FILTER_VALIDATE_BOOLEAN);
 		$captcha =  $this->input->post("captcha");
 		$user_id = $this->session->user_id;

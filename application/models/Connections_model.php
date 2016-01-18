@@ -25,8 +25,8 @@ class Connections_model extends CI_Model {
 			
 			if($row){
 				return $row->id;
-			}else{
-												
+			}else{						
+				
 				$query = $this->db->get_where('connections', array('start' => $id2,'dest'=>$id1), $limit, $offset);
 				$row = $query->result();
 				
@@ -37,6 +37,7 @@ class Connections_model extends CI_Model {
 				}
 				
 				if($row){
+		
 					return $row->id;
 				}else{
 					return false;
