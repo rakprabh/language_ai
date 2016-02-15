@@ -73,6 +73,7 @@ class Ai{
 			}else{
 
 				$response = $this->orderIt($this->fetchWords($response));
+				echo $response . "<br />";
 				$response = $clean_response = $this->removeConsecutiveRepeat($this->cleanResponse($this->removeConsecutiveRepeat($response)));
 				$this->CI->current_output->truncate_current_output();
 				$this->CI->current_output->add_current_output($this->text);
@@ -83,7 +84,7 @@ class Ai{
 			if(!$response){
 				echo "I dont Know.";
 			}else{
-				echo $response;
+				echo trim($response) . ".";
 			}
 				
   
@@ -194,7 +195,8 @@ class Ai{
 	}
 	
 	private function cleanResponse($text){
-		
+	 	
+		echo "input text : " . $text . "<br />";
 		$words = explode(" ",$text);
 		$size  = sizeOf($words);
 		$final_response = array();
@@ -215,7 +217,7 @@ class Ai{
 				$loop_id = 0;
 			}
 			
-			
+			echo "<br />I is : " . $this->CI->words->get_word($this->user_id,$i_id) . "<br /><br />";
 			for($j=0;$j<$size;$j++){
 				
 				if($i===$j || in_array($j, $picked_up)){
@@ -223,6 +225,9 @@ class Ai{
 				}
 				
 				$j_id = $this->CI->words->get_word_id($this->user_id,$words[$j]);
+				
+				
+				echo "J is : " . $this->CI->words->get_word($this->user_id,$j_id) . "<br />";
 				
 				if($j_id){
 					$foward_link = $this->CI->word_flow->word_link_exists($i_id,$j_id);
@@ -232,6 +237,7 @@ class Ai{
 				
 				if($foward_link && ($foward_link > $latest)){
 					$latest =  $foward_link;
+					echo "Linked to : " . $this->CI->words->get_word($this->user_id,$j_id) . "<br />";
 					$loop_id = $j_id;
 					array_push($picked_up,$j);
 				}
@@ -239,12 +245,17 @@ class Ai{
 			
 			if($latest){
 			
-				$temp = array("word_id"=>$i_id,"linked_word_id"=>$loop_id);
+			$temp = array("word_id"=>$this->CI->words->get_word($this->user_id,$i_id),"linked_word_id"=>$this->CI->words->get_word($this->user_id,$loop_id));
+				//$temp = array("word_id"=>$i_id,"linked_word_id"=>$loop_id);
 				
 				array_push($final_response,$temp);
 
 			}			
 		}
+		
+		echo "<pre>";
+		var_dump($final_response);
+		echo "<br /><br /><br />";
 		
 		$size = sizeOf($final_response);
 		$final_ids = array();
@@ -257,7 +268,7 @@ class Ai{
 		
 		$prevContinue = false;
 		
-		for($i=0;$i<($size-1);$i++){
+		for($i=0;$i<$size;$i++){
 			
 			$found = false;
 			$link_id = $final_response[$i]["linked_word_id"];
@@ -294,13 +305,15 @@ class Ai{
 			   }
 			  
 			}else{
-				$final_response[$i]['continues'] = true;
+				$final_response[$i]['continues'] = false;
 				$prevContinue = true;
 			}
 			
 		}
 		
-	
+		echo "<pre>";
+		var_dump($final_response);
+		
 		$strike = 0;
 		for($i=0;$i<$size;$i++){
 			
@@ -313,7 +326,7 @@ class Ai{
 					
 					array_push($final_ids,$current_linked_word);
 					if($i==($size-1) || $strike==1){
-						array_push($final_ids,-2);
+						//array_push($final_ids,-2);
 					}else{
 						array_push($final_ids,-1);
 					}
@@ -409,7 +422,7 @@ class Ai{
 					$text .=  ", ";
 					break;
 				case  -2:
-					$text .=  ".";
+					//$text .=  ".";
 					break;
 				default:
 					$word_i = $this->CI->words->get_word($this->user_id,$id);
